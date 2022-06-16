@@ -1,5 +1,7 @@
 package Generic_Utility;
-
+import Generic_Utility.WebDriver_Utility;
+import Generic_Utility.File_Utility;
+import Generic_Utility.Excel_Utility;
 
 import java.io.IOException;
 
@@ -48,12 +50,12 @@ public class BaseClass {
 	
 	@Parameters("Browser")
 	@BeforeClass(groups={"smoke","Regression"})
-	public void bc(String Browser) throws IOException {
+	public void bc(@Optional String Browser) throws IOException {
 		
 		Reporter.log(Browser,true);
-		//String browser = fu.getPropertyKeyValue("Browser");
+		String browser = fu.getPropertyKeyValue("Browser");
 		
-		if(Browser.equalsIgnoreCase("chrome")) {
+		if( browser.equalsIgnoreCase("chrome")) {
 			
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
