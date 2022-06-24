@@ -23,6 +23,7 @@ import Generic_Utility.Excel_Utility;
 import Generic_Utility.File_Utility;
 import Generic_Utility.Java_Utility;
 import Generic_Utility.WebDriver_Utility;
+import junit.framework.Assert;
 @Listeners(Generic_Utility.MyListeners.class)
 public class DeleteContactTest extends BaseClass {
 	
@@ -55,18 +56,7 @@ public class DeleteContactTest extends BaseClass {
 	String msg = cip.successMessageVerification();
 	
 	//Message Verification
-	
-    if(msg.contains(s)) {
-		
-		System.out.println("Contact created successfully,  Passed");
-	
-    }
-    
-    else {
-		
-		System.out.println("Contact not created successfully, Failed");
-	}
-    
+	Assert.assertEquals(msg.contains(s), true);
 	// Delete Contact  
 	cig.clickOnDeleteBtn();
 	//Handle alert pop up

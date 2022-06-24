@@ -14,6 +14,7 @@ public class MyListeners implements ITestListener{
 
 	public void onTestFailure(ITestResult result) {
 		
+		System.out.println("Test Failed");
 		EventFiringWebDriver EFW = new EventFiringWebDriver(BaseClass.sdriver);
 		File src = EFW.getScreenshotAs(OutputType.FILE);
 		File dest = new File("./Screenshots/"+result.getName()+".png");

@@ -45,7 +45,7 @@ public class CreateContact extends BaseClass {
 	String msg = cip.successMessageVerification();
 	
 	//Message Verification
-	Assert.assertEquals(msg.contains("94"), true);
+	Assert.assertEquals(msg.contains(s), true);
 	
 	}
 }

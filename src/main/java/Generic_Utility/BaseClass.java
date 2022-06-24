@@ -48,23 +48,21 @@ public class BaseClass {
 	@BeforeTest(groups={"smoke","Regression"})
 	public void bt() {
 		
-		
 		System.out.println("execute script in parallel mode");
 	} 
 	
-	@Parameters("Browser")
+	
 	@BeforeClass(groups={"smoke","Regression"})
-	public void bc(@Optional String Browser) throws IOException {
-		
-		Reporter.log(Browser,true);
-		String browser = fu.getPropertyKeyValue("Browser");
-		
+	public void bc() throws IOException {
+	
+		String browser = IConstants.browser;
+		Reporter.log(browser,true);
 		if( browser.equalsIgnoreCase("chrome")) {
 			
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		}
-			else if(Browser.equalsIgnoreCase("firefox")) {
+			else if(browser.equalsIgnoreCase("firefox")) {
 				
 				
 				WebDriverManager.firefoxdriver().setup();
